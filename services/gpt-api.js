@@ -53,7 +53,12 @@ const quiz = {
   answer: "In this darkness, who will indeed become the lighthouse of my heart?",
   wrongAnswers: [ "In this light, who will indeed become the shadow of my heart?",
                   "Who, in this silence, will listen to the sound of my heart?",
-                  "Who will navigate through this darkness with me?"]
+                  "Who will navigate through this darkness with me?"],
+  language: "Korean",
+  gender: "F",
+  formality: "Casual",
+  drama: "Theatrical",
+  difficulty:"Hard"
 }
 
   return quiz
