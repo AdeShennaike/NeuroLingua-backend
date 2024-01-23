@@ -9,6 +9,5 @@ const router = Router()
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
-router.get('/', decodeUserFromToken, profilesCtrl.index)
 
 export { router }
