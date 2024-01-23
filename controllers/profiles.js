@@ -1,4 +1,4 @@
-import { Profile } from '../models/profile.js'
+import { Profile } from '../models/quiz.js'
 import { User } from '../models/user.js'
 
 // function index(req, res) {
