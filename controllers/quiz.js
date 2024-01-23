@@ -1,9 +1,9 @@
-import '../services/gpt-api.js'
+import requestSampleQuiz from '../services/gptapi.js'
 
 async function getQuizHistory(req, res) {
   try {
-    console.log(req)
-    return res.status(200).json([requestSampleQuiz, requestSampleQuiz])
+    console.log("getQuizHistory")
+    return res.status(200).json([requestSampleQuiz(),requestSampleQuiz()])
   } catch (error) {
     console.error('Error in getQuizHistory:', error)
     return res.status(500).json({ message: 'Internal server error in getQuizHistory' })
@@ -12,8 +12,8 @@ async function getQuizHistory(req, res) {
 
 async function getQuizDetails(req, res) {
   try {
-    console.log(req)
-    return res.status(200).json(requestSampleQuiz)
+    console.log("getQuizDetails")
+    return res.status(200).json(requestSampleQuiz())
   } catch (error) {
     console.error('Error in getQuizDetails:', error)
     return res.status(500).json({ message: 'Internal server error in getQuizDetails' })
@@ -22,8 +22,10 @@ async function getQuizDetails(req, res) {
 
 async function getQuiz(req, res) {
   try {
-    console.log(req)
-    return res.status(200).json(requestSampleQuiz)
+    console.log("getQuiz")
+    const r = requestSampleQuiz()
+    console.log(r)
+    return res.status(200).json(r)
   } catch (error) {
     console.error('Error in getQuiz:', error)
     return res.status(500).json({ message: 'Internal server error in getQuiz' })
@@ -32,8 +34,8 @@ async function getQuiz(req, res) {
 
 async function answerQuiz(req, res) {
   try {
-    console.log(req)
-    return res.status(200).json(requestSampleQuiz)
+    console.log("answerQuiz")
+    return res.status(200).json(requestSampleQuiz())
   } catch (error) {
     console.error('Error in answerQuiz:', error)
     return res.status(500).json({ message: 'Internal server error in answerQuiz' })
@@ -42,8 +44,8 @@ async function answerQuiz(req, res) {
 
 async function removeQuizFromHistory(req, res) {
   try {
-    console.log(req)
-    return res.status(200).json(requestSampleQuiz)
+    console.log("removeQuizFromHistory")
+    return res.status(200).json(requestSampleQuiz())
   } catch (error) {
     console.error('Error in removeQuizFromHistory:', error)
     return res.status(500).json({ message: 'Internal server error in removeQuizFromHistory' })
@@ -52,8 +54,8 @@ async function removeQuizFromHistory(req, res) {
 
 async function provideFeedback(req, res) {
   try {
-    console.log(req)
-    return res.status(200).json(requestSampleQuiz)
+    console.log("provideFeedback")
+    return res.status(200).json(requestSampleQuiz())
   } catch (error) {
     console.error('Error in provideFeedback:', error)
     return res.status(500).json({ message: 'Internal server error in provideFeedback' })
