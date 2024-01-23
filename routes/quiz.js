@@ -1,18 +1,19 @@
 import express from "express"
 const router = express.Router()
-import * as quizController from "../controllers/quiz.js"
+import { getQuiz, getQuizHistory, getQuizDetails, 
+  provideFeedback, answerQuiz, removeQuizFromHistory } from "../controllers/quiz.js"
 
-router.get("/quiz", quizController.getQuiz)
+router.get("/quiz", getQuiz)
 
-router.get("/:id", quizController.getQuizDetails)
+router.get("details/:id", getQuizDetails)
 
-router.get("/history", quizController.getQuizHistory)
+router.get("/history", getQuizHistory)
 
-router.post("/:id/feedback", quizController.provideFeedback)
+router.post("/feedback/:id", provideFeedback)
 
-router.put("/:id/answer", quizController.answerQuiz)
+router.put("/answer/:id", answerQuiz)
 
-router.delete("/:id/delete", quizController.removeQuizFromHistory)
+router.delete("delete/:id", removeQuizFromHistory)
 
 
 export { router }

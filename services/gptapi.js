@@ -81,11 +81,10 @@ const PROMPT_LANGUAGE = {
   sindhi:"sindhi"
 }
 
-async function requestSampleQuiz(language, tone, informalityLevel, dramaLevel, challengeLevel) {
+// async function requestSampleQuiz(language, tone, informalityLevel, dramaLevel, challengeLevel) {
+function requestSampleQuiz() {
 
-  console.log(`requested new quiz with parameters: language: ${language}, tone: ${tone} ,informalityLevel: ${informalityLevel} ,dramaLevel: ${dramaLevel} ,challengeLevel:${challengeLevel}`)
-
-  const sampleQuiz = {
+  return {
     prompt: "이 어둠 속에서 내 마음의 등대가 되어줄 사람은 과연 누구일까?",
     correctTranslation: "In this darkness, who will indeed become the lighthouse of my heart?",
     alternativeTranslations: [ 
@@ -98,9 +97,7 @@ async function requestSampleQuiz(language, tone, informalityLevel, dramaLevel, c
     informalityLevel: "casual",
     dramaLevel: "medium",
     challengeLevel: "high"
-}
-
-  return sampleQuiz
+  } 
 }
 
 export default requestSampleQuiz
