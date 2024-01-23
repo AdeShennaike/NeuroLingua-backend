@@ -1,80 +1,62 @@
-
+import '../services/gpt-api.js'
 
 async function getQuizHistory(req, res) {
   try {
-    // get current user
-
-    // for each in User.profile.quizzes (quizId) {
-      // Quiz.getMany( quizId ) 
-
-      return "getQuizHistory called"
+    console.log(req)
+    return res.status(200).json([requestSampleQuiz, requestSampleQuiz])
   } catch (error) {
-
+    console.error('Error in getQuizHistory:', error)
+    return res.status(500).json({ message: 'Internal server error in getQuizHistory' })
   }
 }
 
 async function getQuizDetails(req, res) {
   try {
-    // get current user
-
-    // for each in User.profile.quizzes (quizId) {
-      // Quiz.getMany( quizId ) 
-
-      return "getQuizDetails called"
+    console.log(req)
+    return res.status(200).json(requestSampleQuiz)
   } catch (error) {
-
+    console.error('Error in getQuizDetails:', error)
+    return res.status(500).json({ message: 'Internal server error in getQuizDetails' })
   }
 }
 
 async function getQuiz(req, res) {
   try {
-    // get current user
-
-    // for each in User.profile.quizzes (quizId) {
-      // Quiz.getMany( quizId ) 
-
-      return "getQuiz called"
+    console.log(req)
+    return res.status(200).json(requestSampleQuiz)
   } catch (error) {
-
+    console.error('Error in getQuiz:', error)
+    return res.status(500).json({ message: 'Internal server error in getQuiz' })
   }
 }
 
 async function answerQuiz(req, res) {
   try {
-    // get current user
-
-    // for each in User.profile.quizzes (quizId) {
-      // Quiz.getMany( quizId ) 
-
-      return "answerQuiz called"
+    console.log(req)
+    return res.status(200).json(requestSampleQuiz)
   } catch (error) {
-
+    console.error('Error in answerQuiz:', error)
+    return res.status(500).json({ message: 'Internal server error in answerQuiz' })
   }
 }
 
 async function removeQuizFromHistory(req, res) {
   try {
-    // get current user
-
-    // for each in User.profile.quizzes (quizId) {
-      // Quiz.getMany( quizId ) 
-
-      return "removeQuizFromHistory called"
+    console.log(req)
+    return res.status(200).json(requestSampleQuiz)
   } catch (error) {
-
+    console.error('Error in removeQuizFromHistory:', error)
+    return res.status(500).json({ message: 'Internal server error in removeQuizFromHistory' })
   }
 }
 
 async function provideFeedback(req, res) {
   try {
-    // get current user
-
-    // for each in User.profile.quizzes (quizId) {
-      // Quiz.getMany( quizId ) 
-
-      return "provideFeedback called"
+    console.log(req)
+    return res.status(200).json(requestSampleQuiz)
   } catch (error) {
-
+    console.error('Error in provideFeedback:', error)
+    return res.status(500).json({ message: 'Internal server error in provideFeedback' })
   }
 }
 

@@ -103,5 +103,4 @@ async function requestSampleQuiz(language, tone, informalityLevel, dramaLevel, c
   return sampleQuiz
 }
 
-
-console.log(requestSampleQuiz(PROMPT_LANGUAGE.korean, PROMPT_TONE.feminine, INFORMALITY_LEVEL.casual, DRAMA_LEVEL.low, CHALLENGE_LEVEL.high))
+export default requestSampleQuiz
