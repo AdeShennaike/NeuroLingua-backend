@@ -8,6 +8,11 @@ const router = Router()
 // router.get('/', profilesCtrl.index)
 
 /*---------- Protected Routes ----------*/
-router.use(decodeUserFromToken)
+// router.use(decodeUserFromToken)
+// router.get('/', decodeUserFromToken, profilesCtrl.index)
+
+router.get("/preferences", profilesCtrl.viewPrefrences)
+
+router.put("/preferences", profilesCtrl.updatePreferences)
 
 export { router }
