@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const profileSchema = new mongoose.Schema({
-  localized: String,
+  localized: { type: String, default: "english" },
   quizzes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Quiz' }],
   language: { type: String, default: "spanish" },
   tone: { type: String, default: "feminine" },

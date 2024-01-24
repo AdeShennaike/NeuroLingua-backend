@@ -1,19 +1,4 @@
-/************
-  Returns:
- *********************************************
-
-  {
-    question: String,
-    answer: String,
-    wrongAnswers: [String, String, String],
-    language: String,  ("korean", "spanish")
-    gender: String,    ("f", "m")
-    formality: String, ("formal", "casual")
-    drama: String,     ("low", "med", "high")
-    difficulty: String ("low", "med", "high")
-  }
-
-/**********************************/
+import 'dotenv/config.js'
 
 const PROMPT_TONE = {
   feminine: "feminine",
@@ -81,7 +66,6 @@ const PROMPT_LANGUAGE = {
   sindhi: "sindhi"
 }
 
-// async function requestSampleQuiz(language, tone, informalityLevel, dramaLevel, challengeLevel) {
 function requestSampleQuiz() {
 
   return {
@@ -95,7 +79,7 @@ function requestSampleQuiz() {
   }
 }
 
-async function requestQuiz(language, tone, informalityLevel, dramaLevel, challengeLevel) {
+async function requestQuiz(localization, language, tone, informalityLevel, dramaLevel, challengeLevel) {
 
   const sampleResponse = {
     "id": "chatcmpl-8kH8yL6LTbQvqmWiWpKVmpxVXbqz2",
@@ -121,13 +105,13 @@ async function requestQuiz(language, tone, informalityLevel, dramaLevel, challen
     "system_fingerprint": null
   }
 
-  const content = "Please generate a multiple choice language quiz question. Provide a sentence in Spanish, and a translation in the user's native language (English), then three incorrect alternative answers. Please respond with a JSON object with the format {question: String, answer: String, alternate: [String, String, String]} without additional commentary"
+  const content = `Please generate a multiple choice language quiz question. Provide a sentence in ${language}, and a translation in the user's native language (${localization}), then three incorrect alternative answers. Please respond with a JSON object with the format {question: String, answer: String, alternate: [String, String, String]} without additional commentary.`
 
   try {
 
-    // const gpt_response = await fetchOpenAIChatCompletion(apiKey, content)
+    const gptResponse = await fetchOpenAIChatCompletion(GPT_KEY, content)
 
-    const contentString = sampleResponse.choices[0].message.content
+    const contentString = gptResponse.choices[0].message.content
 
     const contentObj = await JSON.parse(contentString)
 
