@@ -105,11 +105,11 @@ async function requestQuiz(localization, language, tone, informalityLevel, drama
     "system_fingerprint": null
   }
 
-  const content = `Please generate a multiple choice language quiz question. Provide a sentence in ${language}, and a translation in the user's native language (${localization}), then three incorrect alternative answers. Please respond with a JSON object with the format {question: String, answer: String, alternate: [String, String, String]} without additional commentary.`
+  const content = `Please generate a multiple choice language quiz question. Provide a sentence in ${language}, and a translation in the user's native language (${localization}), then three incorrect alternative answers. Make the tone of sentence ${tone}, make the informality ${informalityLevel}, and the challenge level ${challengeLevel} difficulty. Please respond with a JSON object with the format {question: String, answer: String, alternate: [String, String, String]} without additional commentary.`
 
   try {
 
-    const gptResponse = await fetchOpenAIChatCompletion(GPT_KEY, content)
+    const gptResponse = await fetchOpenAIChatCompletion(process.env.GPT_KEY, content)
 
     const contentString = gptResponse.choices[0].message.content
 
@@ -134,7 +134,7 @@ async function requestQuiz(localization, language, tone, informalityLevel, drama
 
 async function fetchOpenAIChatCompletion(apiKey, content) {
   const requestBody = {
-    model: "gpt-4",
+    model: "gpt-3.5-turbo", // or "gpt-4"
     messages: [
       {
         role: "user",
@@ -162,8 +162,8 @@ async function fetchOpenAIChatCompletion(apiKey, content) {
   return data;
 }
 
-// const test = await requestQuiz("spanish", "feminine", "casual", "high", "low")
-// console.log(test)
+const test = await requestQuiz("english", "spanish", "feminine", "casual", "high", "low")
+console.log(test)
 
 export {
   requestSampleQuiz,
