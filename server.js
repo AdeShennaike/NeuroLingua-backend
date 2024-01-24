@@ -24,7 +24,7 @@ app.use(logger('dev'))
 app.use(express.json())
 
 // mount imported routes
-app.use('/api/profiles', profilesRouter)
+app.use('/api', profilesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/quizzes', quizRouter)
 
