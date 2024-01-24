@@ -42,7 +42,7 @@ async function getQuiz(req, res) {
     if (quiz) {
       return res.status(200).json(quiz)
     } else {
-      const preferences = [profile.language, profile.tone, profile.formality, profile.drama, profile.difficulty ]
+      const preferences = [profile.localized, profile.language, profile.tone, profile.formality, profile.drama, profile.difficulty ]
       const newQuizPrompt = await requestQuiz(...preferences)
       if(!newQuizPrompt.prompt || !newQuizPrompt.answer || !newQuizPrompt.wrongAnswers) {
         console.log("ERROR CREATING QUIZ: ", newQuizPrompt)

@@ -7,6 +7,7 @@ const decodeUserFromToken = (req, res, next) => {
   if (token) {
     token = token.replace('Bearer ', '')
     jwt.verify(token, SECRET, (err, decoded) => {
+      console.log(decoded)
       if (err) {
         next(err)
       } else {
@@ -15,7 +16,7 @@ const decodeUserFromToken = (req, res, next) => {
       }
     })
   } else {
-    next()
+    res.status(401).json({ message: 'No token provided' })
   }
 }
 
