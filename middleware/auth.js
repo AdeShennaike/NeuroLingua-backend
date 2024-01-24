@@ -16,7 +16,7 @@ const decodeUserFromToken = (req, res, next) => {
       }
     })
   } else {
-    next()
+    res.status(401).json({ message: 'No token provided' })
   }
 }
 
