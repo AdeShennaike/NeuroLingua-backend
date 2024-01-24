@@ -4,7 +4,7 @@ const options = ["spanish", "feminine", "casual", "high", "low"]
 
 async function getQuizHistory(req, res) {
   try {
-    console.log("getQuizHistory")
+    console.log("getQuizHistory - User: ", req.user)
     const response = await requestQuiz(...options)
     return res.status(200).json([response,response,response,response])
   } catch (error) {
@@ -15,7 +15,7 @@ async function getQuizHistory(req, res) {
 
 async function getQuizDetails(req, res) {
   try {
-    console.log("getQuizDetails")
+    console.log("getQuizDetails - User: ", req.user)
     return res.status(200).json(await requestQuiz(...options))
   } catch (error) {
     console.error('Error in getQuizDetails:', error)
@@ -24,8 +24,9 @@ async function getQuizDetails(req, res) {
 }
 
 async function getQuiz(req, res) {
+  console.log("USER: ", req.user)
   try {
-    console.log("getQuiz")
+    console.log("getQuiz - User: ", req.user)
     return res.status(200).json(await requestQuiz(...options))
   } catch (error) {
     console.error('Error in getQuiz:', error)
@@ -35,7 +36,7 @@ async function getQuiz(req, res) {
 
 async function answerQuiz(req, res) {
   try {
-    console.log("answerQuiz")
+    console.log("answerQuiz - User: ", req.user)
     return res.status(200).json(await requestQuiz(...options))
   } catch (error) {
     console.error('Error in answerQuiz:', error)
@@ -45,7 +46,7 @@ async function answerQuiz(req, res) {
 
 async function removeQuizFromHistory(req, res) {
   try {
-    console.log("removeQuizFromHistory")
+    console.log("removeQuizFromHistory - User: ", req.user)
     return res.status(200).json(await requestQuiz(...options))
   } catch (error) {
     console.error('Error in removeQuizFromHistory:', error)
@@ -55,7 +56,7 @@ async function removeQuizFromHistory(req, res) {
 
 async function provideFeedback(req, res) {
   try {
-    console.log("provideFeedback")
+    console.log("provideFeedback - User: ", req.user)
     return res.status(200).json(await requestQuiz(...options))
   } catch (error) {
     console.error('Error in provideFeedback:', error)
