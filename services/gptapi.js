@@ -86,17 +86,12 @@ function requestSampleQuiz() {
 
   return {
     prompt: "이 어둠 속에서 내 마음의 등대가 되어줄 사람은 과연 누구일까?",
-    correctTranslation: "In this darkness, who will indeed become the lighthouse of my heart?",
-    alternativeTranslations: [
+    answer: "In this darkness, who will indeed become the lighthouse of my heart?",
+    wronganswers: [
       "In this light, who will indeed become the shadow of my heart?",
       "Who, in this silence, will listen to the sound of my heart?",
       "Who will navigate through this darkness with me?"
-    ],
-    promptLanguage: "korean",
-    promptTone: "feminine",
-    informalityLevel: "casual",
-    dramaLevel: "medium",
-    challengeLevel: "high"
+    ]
   }
 }
 
@@ -137,14 +132,9 @@ async function requestQuiz(language, tone, informalityLevel, dramaLevel, challen
     const contentObj = await JSON.parse(contentString)
 
     const parsedResponse = {
-      question: contentObj.question,
+      prompt: contentObj.question,
       answer: contentObj.answer,
-      alternateAnswers: contentObj.alternate,
-      language: language,
-      tone: tone,
-      informalityLevel: informalityLevel,
-      dramaLevel: dramaLevel,
-      challengeLevel: challengeLevel
+      wrongAnswers: contentObj.alternate,
     }
 
     return parsedResponse
@@ -152,7 +142,9 @@ async function requestQuiz(language, tone, informalityLevel, dramaLevel, challen
   } catch (error) {
     console.log(error)
     console.log("ERROR - GPT RESPONSE: ", sampleResponse.choices)
-    return error
+    return {prompt: error.message,
+            answer: "error",
+            wronganswers: [".",".","."]}
   }
 }
 
