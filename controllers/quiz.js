@@ -1,5 +1,6 @@
-import { requestQuiz } from '../services/gptapi.js'
-import { Profile, Quiz, Feedback } from '../models/quiz.js'
+import { requestQuiz, requestSampleQuiz } from '../services/gptapi.js'
+import { Quiz, Feedback } from '../models/quiz.js'
+import { Profile } from '../models/profile.js'
 import { User } from '../models/user.js'
 
 const options = ["spanish", "feminine", "casual", "high", "low"]
@@ -17,7 +18,7 @@ async function getQuizHistory(req, res) {
 
 async function getQuizDetails(req, res) {
   try {
-    console.log("getQuizDetails - User: ", req.user)
+    const id = req.params.id
     return res.status(200).json(requestQuiz(...options))
   } catch (error) {
     console.error('Error in getQuizDetails:', error)
@@ -28,9 +29,39 @@ async function getQuizDetails(req, res) {
 async function getQuiz(req, res) {
   try {
     console.log("getQuiz, user: ", req.user)
-    const profile = await Profile.findOne({_id: req.user.profile})
-    console.log(profile)
-    return res.status(200).json(requestQuiz(...options))
+    const profile = await Profile.findOne({ _id: req.user.profile })
+
+    const quiz = await Quiz.findOne({
+      _id: { $nin: profile.quizzes },
+      language: profile.language,
+      difficulty: profile.difficulty,
+      formality: profile.formality,
+      drama: profile.drama 
+    })
+
+    if (quiz) {
+      return res.status(200).json(quiz)
+    } else {
+      const preferences = [profile.language, profile.tone, profile.formality, profile.drama, profile.difficulty ]
+      const newQuizPrompt = await requestQuiz(...preferences)
+      if(!newQuizPrompt.prompt || !newQuizPrompt.answer || !newQuizPrompt.wrongAnswers) {
+        console.log("ERROR CREATING QUIZ: ", newQuizPrompt)
+        throw "ERROR CREATING QUIZ"
+      }
+      const newQuiz = {
+        prompt: newQuizPrompt.prompt,
+        answer: newQuizPrompt.answer,
+        wrongAnswers: newQuizPrompt.wrongAnswers,
+        language: profile.language,
+        difficulty: profile.difficulty,
+        formality: profile.formality,
+        drama: profile.drama
+      }
+      console.log(newQuiz)
+      const freshQuiz = await Quiz.create(newQuiz)
+      return res.status(200).json(freshQuiz)
+
+    }
   } catch (error) {
     console.error('Error in getQuiz:', error)
     return res.status(500).json({ message: 'Internal server error in getQuiz' })

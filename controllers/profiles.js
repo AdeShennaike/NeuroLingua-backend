@@ -1,4 +1,4 @@
-import { Profile } from '../models/quiz.js'
+import { Profile } from '../models/profile.js'
 import { User } from '../models/user.js'
 
 async function viewPrefrences(req, res) {
