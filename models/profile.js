@@ -12,8 +12,16 @@ const profileSchema = new mongoose.Schema({
   timestamps: true,
 })
 
+profileSchema.pre('save', function(next) {
+  if (this.quizzes) {
+    this.quizzes = Array.from(new Set(this.quizzes.map(id => id.toString())))
+  }
+  next()
+})
+
 const Profile = mongoose.model('Profile', profileSchema)
 
 export {
   Profile
 }
+
