@@ -10,6 +10,8 @@ const options = ["spanish", "feminine", "casual", "high", "low"]
 async function getQuizHistory(req, res) {
   try {
     console.log("getQuizHistory - User: ", req.user)
+    const profile = await Profile.findOne({ _id: req.user.profile })
+    console.log("getQuizHistory - Profile: ", profile)
     const response = await requestQuiz(...options)
     return res.status(200).json([response, response, response, response])
   } catch (error) {
@@ -35,9 +37,10 @@ async function getQuizDetails(req, res) {
 
 async function getQuiz(req, res) {
   try {
-    console.log("getQuiz, user: ", req.user)
-    const profile = await Profile.findOne({ _id: req.user.profile })
-
+    console.log("getQuiz, email: ", req.user)
+    const user = await User.findOne({email: req.user})
+    console.log("getQuiz, user: ", user)
+    const profile = await Profile.findOne({ _id: user.profile })
     console.log("getQuiz, Profile: ", profile)
     const quiz = await Quiz.findOne({
       _id: { $nin: profile.quizzes },
