@@ -1,5 +1,5 @@
 import { requestQuiz } from '../services/gptapi.js'
-import { arabicQuizBufferHard,arabicQuizBufferEasy, chineseQuizBuffer, spanishQuizBuffer, koreanQuizBuffer } from '../services/gptapi.js'
+import { arabicQuizBufferHard,arabicQuizBufferEasy, chineseQuizBuffer, spanishQuizBuffer, koreanQuizBuffer, spanishQuizBufferEasy } from '../services/gptapi.js'
 
 import { Quiz, Feedback } from '../models/quiz.js'
 import { Profile } from '../models/profile.js'
@@ -33,19 +33,21 @@ async function getQuiz(req, res) {
     console.log("getQuiz, user: ", req.user)
     const profile = await Profile.findOne({ _id: req.user.profile })
 
+    console.log("getQuiz, Profile: ", profile)
     const quiz = await Quiz.findOne({
       _id: { $nin: profile.quizzes },
       language: profile.language,
       difficulty: profile.difficulty
     })
+    console.log("getQuiz, quiz: ", quiz)
 
     if (quiz) {
       return res.status(200).json(quiz)
     } else {
       const newQuiz = {
         prompt: "No more quizzes :(",
-        answer: "...",
-        wrongAnswers: ["...","...","..."]
+        answer: "<answer>",
+        wrongAnswers: ["<alt1>","<alt2>","<alt3>"]
       }
       return res.status(200).json(newQuiz)
     }
@@ -59,14 +61,6 @@ async function answerQuiz(req, res) {
   try {
     console.log("answerQuiz - User: ", req.user)
     console.log("answerQuiz - id: ", req.params.id)
-
-    if (!req.user) {
-      throw "missing user id" 
-    }
-
-    if (!req.params || !req.params.id) {
-      throw "missing quiz id params"
-    }
 
     const profile = Profile.findOne({_id: req.user.profile})
     const quiz = Quiz.find({_id: req.params.id})
@@ -165,6 +159,19 @@ async function seedQuizzes() {
   }
 
   for (const quiz of koreanQuizBuffer) {
+    const newQuiz = {
+      prompt: quiz.prompt,
+      answer: quiz.answer,
+      wrongAnswers: quiz.alternate,
+      language: "korean",
+      difficulty: "hard",
+      formality: "low",
+      drama: "low"
+    }
+    const freshQuiz = await Quiz.create(newQuiz)
+  }
+
+  for (const quiz of spanishQuizBufferEasy) {
     const newQuiz = {
       prompt: quiz.prompt,
       answer: quiz.answer,
