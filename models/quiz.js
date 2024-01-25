@@ -6,7 +6,7 @@ const Schema = mongoose.Schema
 // Quiz
 // *************************
 const quizSchema = new Schema({
-  prompt: { type: String, required: true },
+  prompt: { type: String, required: true, unique: true},
   answer: { type: String, required: true },
   wrongAnswers: { type: [String], required: true },
   language: { type: String, required: true },

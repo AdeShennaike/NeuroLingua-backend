@@ -1,5 +1,5 @@
 import { requestQuiz } from '../services/gptapi.js'
-import { arabicQuizBufferHard,arabicQuizBufferEasy, chineseQuizBuffer, spanishQuizBuffer, koreanQuizBuffer } from '../services/gptapi.js'
+import { arabicQuizBufferHard,arabicQuizBufferEasy, chineseQuizBuffer, spanishQuizBuffer, koreanQuizBuffer, spanishQuizBufferEasy } from '../services/gptapi.js'
 
 import { Quiz, Feedback } from '../models/quiz.js'
 import { Profile } from '../models/profile.js'
@@ -159,6 +159,19 @@ async function seedQuizzes() {
   }
 
   for (const quiz of koreanQuizBuffer) {
+    const newQuiz = {
+      prompt: quiz.prompt,
+      answer: quiz.answer,
+      wrongAnswers: quiz.alternate,
+      language: "korean",
+      difficulty: "hard",
+      formality: "low",
+      drama: "low"
+    }
+    const freshQuiz = await Quiz.create(newQuiz)
+  }
+
+  for (const quiz of spanishQuizBufferEasy) {
     const newQuiz = {
       prompt: quiz.prompt,
       answer: quiz.answer,
