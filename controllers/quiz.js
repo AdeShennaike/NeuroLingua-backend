@@ -1,4 +1,6 @@
-import { requestQuiz, requestSampleQuiz } from '../services/gptapi.js'
+import { requestQuiz } from '../services/gptapi.js'
+import { arabicQuizBufferHard,arabicQuizBufferEasy, chineseQuizBuffer, spanishQuizBuffer, koreanQuizBuffer } from '../services/gptapi.js'
+
 import { Quiz, Feedback } from '../models/quiz.js'
 import { Profile } from '../models/profile.js'
 import { User } from '../models/user.js'
@@ -36,15 +38,15 @@ async function getQuiz(req, res) {
       language: profile.language,
       difficulty: profile.difficulty,
       formality: profile.formality,
-      drama: profile.drama 
+      drama: profile.drama
     })
 
     if (quiz) {
       return res.status(200).json(quiz)
     } else {
-      const preferences = [profile.localized, profile.language, profile.tone, profile.formality, profile.drama, profile.difficulty ]
+      const preferences = [profile.localized, profile.language, profile.tone, profile.formality, profile.drama, profile.difficulty]
       const newQuizPrompt = await requestQuiz(...preferences)
-      if(!newQuizPrompt.prompt || !newQuizPrompt.answer || !newQuizPrompt.wrongAnswers) {
+      if (!newQuizPrompt.prompt || !newQuizPrompt.answer || !newQuizPrompt.wrongAnswers) {
         console.log("ERROR CREATING QUIZ: ", newQuizPrompt)
         throw "ERROR CREATING QUIZ"
       }
@@ -57,7 +59,7 @@ async function getQuiz(req, res) {
         formality: profile.formality,
         drama: profile.drama
       }
-      console.log(newQuiz)
+      console.log("NEW QUIZ: ", newQuiz)
       const freshQuiz = await Quiz.create(newQuiz)
       return res.status(200).json(freshQuiz)
 
@@ -98,6 +100,74 @@ async function provideFeedback(req, res) {
   }
 }
 
+async function seedQuizzes() {
+
+  for (const quiz of arabicQuizBufferHard) {
+    const newQuiz = {
+      prompt: quiz.prompt,
+      answer: quiz.answer,
+      wrongAnswers: quiz.alternate,
+      language: "arabic",
+      difficulty: "hard",
+      formality: "low",
+      drama: "low"
+    }
+    console.log(newQuiz)
+    const freshQuiz = await Quiz.create(newQuiz)
+  }
+
+  for (const quiz of arabicQuizBufferEasy) {
+    const newQuiz = {
+      prompt: quiz.prompt,
+      answer: quiz.answer,
+      wrongAnswers: quiz.alternate,
+      language: "arabic",
+      difficulty: "easy",
+      formality: "low",
+      drama: "low"
+    }
+    const freshQuiz = await Quiz.create(newQuiz)
+  }
+
+  for (const quiz of chineseQuizBuffer) {
+    const newQuiz = {
+      prompt: quiz.prompt,
+      answer: quiz.answer,
+      wrongAnswers: quiz.alternate,
+      language: "chinese",
+      difficulty: "medium",
+      formality: "low",
+      drama: "low"
+    }
+    const freshQuiz = await Quiz.create(newQuiz)
+  }
+
+  for (const quiz of spanishQuizBuffer) {
+    const newQuiz = {
+      prompt: quiz.prompt,
+      answer: quiz.answer,
+      wrongAnswers: quiz.alternate,
+      language: "spanish",
+      difficulty: "medium",
+      formality: "low",
+      drama: "low"
+    }
+    const freshQuiz = await Quiz.create(newQuiz)
+  }
+
+  for (const quiz of koreanQuizBuffer) {
+    const newQuiz = {
+      prompt: quiz.prompt,
+      answer: quiz.answer,
+      wrongAnswers: quiz.alternate,
+      language: "korean",
+      difficulty: "hard",
+      formality: "low",
+      drama: "low"
+    }
+    const freshQuiz = await Quiz.create(newQuiz)
+  }
+}
 
 export {
   getQuizHistory,
@@ -105,5 +175,6 @@ export {
   getQuiz,
   answerQuiz,
   removeQuizFromHistory,
-  provideFeedback
+  provideFeedback,
+  seedQuizzes
 }
