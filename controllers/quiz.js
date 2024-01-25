@@ -121,7 +121,14 @@ async function removeQuizFromHistory(req, res) {
 async function provideFeedback(req, res) {
   try {
     console.log("provideFeedback - User: ", req.user)
-    return res.status(200).json(requestQuiz(...options))
+    console.log("answerQuiz - id: ", req.params.id)
+    const feedback = {
+      quiz: req.params.id,
+      user: req.user._id,
+      message: req.body.message
+    }
+    await Feedback.create(feedback)
+    return res.status(200).json("thanks for your feedback")
   } catch (error) {
     console.error('Error in provideFeedback:', error)
     return res.status(500).json({ message: 'Internal server error in provideFeedback' })
