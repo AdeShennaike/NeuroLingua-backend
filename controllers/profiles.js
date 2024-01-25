@@ -3,9 +3,8 @@ import { User } from '../models/user.js'
 
 async function viewPrefrences(req, res) {
   try {
-    const user = await User.findOne({_id: req.user})
-    const profile = await Profile.findOne({_id: user.profile})
-    console.log("viewPrefrences: ", user )
+    const profile = await Profile.findOne({_id: req.user.profile})
+    console.log("viewPrefrences: ", req.user )
     console.log("viewPrefrences: ", profile )
     return res.status(200).json(profile)
   } catch (error) {
@@ -15,25 +14,25 @@ async function viewPrefrences(req, res) {
 
 async function updatePreferences(req, res) {
   try {
-    const user = await User.findOne({_id: req.user})
-    const profile = await Profile.findOne({_id: user.profile})
-    profile.language = profile.language.toLowerCase()
-    profile.difficulty = profile.difficulty.toLowerCase()
 
+    if (!req.user) { throw "no user found" }
 
-    if (!user) { throw "no user found" }
-    if (!profile) { throw "no profile found for user: ", user}
+    const profile = await Profile.findOne({_id: req.user.profile})
+    const language = req.body.language.toLowerCase()
+    const difficulty = req.body.difficulty.toLowerCase()
 
-    if (profile.language === "spanish" || profile.language === "arabic" || 
-    profile.language === "korean" || profile.language === "chinese") {
-      profile.language = req.body.language
+    if (!profile) { throw "no profile found for user: ", req.user}
+
+    if (language === "spanish" || language === "arabic" || language === "korean" || language === "chinese") {
+      profile.language = language
     } else {
       console.log("invalid language selection: ", req.body.language)
     }
 
-    if (profile.difficulty === "easy" || profile.difficulty === "medium" || 
-    profile.difficulty === "hard") {
-      profile.difficulty = req.body.difficulty
+    console.log("difficulty input: ", req.body.difficulty)
+
+    if (difficulty === "easy" || difficulty === "medium" || difficulty === "hard") {
+      profile.difficulty = difficulty
     } else {
       console.log("invalid difficulty selection: ", req.body.difficulty)
     }
