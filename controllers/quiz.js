@@ -99,7 +99,19 @@ async function answerQuiz(req, res) {
 async function removeQuizFromHistory(req, res) {
   try {
     console.log("removeQuizFromHistory - User: ", req.user)
-    return res.status(200).json(requestQuiz(...options))
+    console.log("removeQuizFromHistory - id: ", req.params.id)
+
+    const profile = await Profile.findOne({_id: req.user.profile})
+    console.log("removeQuizFromHistory - profile: ", profile.quizzes)
+
+    profile.quizzes = profile.quizzes.filter((quizId) => {
+      quizId.toString() != req.params.id
+    })
+
+    await profile.save()
+
+    return res.status(200).json(req.params.id)
+
   } catch (error) {
     console.error('Error in removeQuizFromHistory:', error)
     return res.status(500).json({ message: 'Internal server error in removeQuizFromHistory' })
