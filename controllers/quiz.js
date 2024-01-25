@@ -11,9 +11,15 @@ async function getQuizHistory(req, res) {
   try {
     console.log("getQuizHistory - User: ", req.user)
     const profile = await Profile.findOne({ _id: req.user.profile })
+    if(!profile){ throw new Error("no profile found") }
     console.log("getQuizHistory - Profile: ", profile)
-    const response = await requestQuiz(...options)
-    return res.status(200).json([response, response, response, response])
+    if (!profile.quizzes) {
+      res.status(200).json([])
+    }
+    const quizzes = await Promise.all(profile.quizzes.map(async (quizId) => {
+      return Quiz.findById(quizId)
+    }))
+    return res.status(200).json(quizzes)
   } catch (error) {
     console.error('Error in getQuizHistory:', error)
     return res.status(500).json({ message: 'Internal server error in getQuizHistory' })
@@ -37,10 +43,8 @@ async function getQuizDetails(req, res) {
 
 async function getQuiz(req, res) {
   try {
-    console.log("getQuiz, email: ", req.user)
-    const user = await User.findOne({email: req.user})
-    console.log("getQuiz, user: ", user)
-    const profile = await Profile.findOne({ _id: user.profile })
+    console.log("getQuiz, user: ", req.user)
+    const profile = await Profile.findOne({ _id: req.user.profile })
     console.log("getQuiz, Profile: ", profile)
     const quiz = await Quiz.findOne({
       _id: { $nin: profile.quizzes },
@@ -70,8 +74,8 @@ async function answerQuiz(req, res) {
     console.log("answerQuiz - User: ", req.user)
     console.log("answerQuiz - id: ", req.params.id)
 
-    const profile = Profile.findOne({_id: req.user.profile})
-    const quiz = Quiz.find({_id: req.params.id})
+    const profile = await Profile.findOne({_id: req.user.profile})
+    const quiz = await Quiz.findOne({_id: req.params.id})
 
     if (!profile) {
       throw `no profile found for ${req.user}`
@@ -81,10 +85,11 @@ async function answerQuiz(req, res) {
       throw `no quiz found for ${req.params.id}`
     }
 
+    console.log(profile)
     profile.quizzes.push(quiz._id)
-    profile.save()
+    await profile.save()
 
-    return getQuiz()
+    return res.status(200).json({id: quiz._id})
   } catch (error) {
     console.error('Error in answerQuiz:', error)
     return res.status(500).json({ message: 'Internal server error in answerQuiz' })
