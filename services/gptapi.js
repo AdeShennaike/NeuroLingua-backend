@@ -388,6 +388,60 @@ const chineseQuizBuffer = [
   }
 ]
 
+const spanishQuizBufferEasy = [
+  {
+    "question": "¿Cómo te llamas?",
+    "answer": "What is your name?",
+    "alternate": ["How old are you?", "Where are you from?", "How are you?"]
+  },
+  {
+    "question": "¿Dónde vives?",
+    "answer": "Where do you live?",
+    "alternate": ["What is your job?", "How old are you?", "Do you speak Spanish?"]
+  },
+  {
+    "question": "¿Qué hora es?",
+    "answer": "What time is it?",
+    "alternate": ["What day is it today?", "How is the weather?", "Are you ready?"]
+  },
+  {
+    "question": "¿Cuántos años tienes?",
+    "answer": "How old are you?",
+    "alternate": ["What is your name?", "Where do you live?", "Do you have any siblings?"]
+  },
+  {
+    "question": "¿Cuál es tu color favorito?",
+    "answer": "What is your favorite color?",
+    "alternate": ["What is your favorite food?", "Where are you going?", "Who is your best friend?"]
+  },
+  {
+    "question": "¿Tienes hermanos?",
+    "answer": "Do you have siblings?",
+    "alternate": ["Do you have children?", "Do you have a pet?", "Do you have a car?"]
+  },
+  {
+    "question": "¿Qué te gusta hacer en tu tiempo libre?",
+    "answer": "What do you like to do in your free time?",
+    "alternate": ["What is your job?", "Where do you want to travel?", "What did you study?"]
+  },
+  {
+    "question": "¿Cuál es tu comida favorita?",
+    "answer": "What is your favorite food?",
+    "alternate": ["What is your favorite drink?", "What is your favorite movie?", "What is your favorite sport?"]
+  },
+  {
+    "question": "¿Cómo está el clima?",
+    "answer": "How is the weather?",
+    "alternate": ["How are you feeling?", "Is it late?", "Are you busy?"]
+  },
+  {
+    "question": "¿Quieres café o té?",
+    "answer": "Do you want coffee or tea?",
+    "alternate": ["Do you prefer cats or dogs?", "Do you have milk or sugar?", "Are you hungry or thirsty?"]
+  }
+]
+
+
 const arabicQuizBufferEasy = [
   {
     "prompt": "كيف حالك؟",

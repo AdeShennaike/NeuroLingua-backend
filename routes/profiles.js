@@ -11,8 +11,8 @@ const router = Router()
 // router.use(decodeUserFromToken)
 // router.get('/', decodeUserFromToken, profilesCtrl.index)
 
-router.get("/preferences", profilesCtrl.viewPrefrences)
+router.get("/preferences", decodeUserFromToken, profilesCtrl.viewPrefrences)
 
-router.put("/preferences", profilesCtrl.updatePreferences)
+router.put("/preferences", decodeUserFromToken, profilesCtrl.updatePreferences)
 
 export { router }
