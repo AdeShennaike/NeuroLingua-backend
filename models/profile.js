@@ -5,7 +5,7 @@ const profileSchema = new mongoose.Schema({
   quizzes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Quiz' }],
   language: { type: String, default: "spanish" },
   tone: { type: String, default: "feminine" },
-  difficulty: { type: String, default: "low" },
+  difficulty: { type: String, default: "easy" },
   formality: { type: String, default: "med" },
   drama: { type: String, default: "med" }
 }, {
