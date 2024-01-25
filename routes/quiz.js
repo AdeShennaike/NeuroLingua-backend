@@ -4,17 +4,17 @@ import { getQuiz, getQuizHistory, getQuizDetails,
   provideFeedback, answerQuiz, removeQuizFromHistory } from "../controllers/quiz.js"
 import { decodeUserFromToken, checkAuth } from "../middleware/auth.js"
 
-router.get("/quiz", checkAuth, decodeUserFromToken, getQuiz)
+router.get("/quiz", decodeUserFromToken, getQuiz)
 
-router.get("details/:id", checkAuth, decodeUserFromToken, getQuizDetails)
+router.get("details/:id", decodeUserFromToken, getQuizDetails)
 
-router.get("/history", checkAuth, decodeUserFromToken, getQuizHistory)
+router.get("/history", decodeUserFromToken, getQuizHistory)
 
-router.post("/feedback/:id", checkAuth, decodeUserFromToken, provideFeedback)
+router.post("/feedback/:id", decodeUserFromToken, provideFeedback)
 
-router.put("/answer/:id", checkAuth, decodeUserFromToken, answerQuiz)
+router.put("/answer/:id", decodeUserFromToken, answerQuiz)
 
-router.delete("delete/:id", checkAuth, decodeUserFromToken, removeQuizFromHistory)
+router.delete("delete/:id", decodeUserFromToken, removeQuizFromHistory)
 
 
 export { router }

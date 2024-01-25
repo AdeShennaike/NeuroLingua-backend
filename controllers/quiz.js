@@ -36,33 +36,18 @@ async function getQuiz(req, res) {
     const quiz = await Quiz.findOne({
       _id: { $nin: profile.quizzes },
       language: profile.language,
-      difficulty: profile.difficulty,
-      formality: profile.formality,
-      drama: profile.drama
+      difficulty: profile.difficulty
     })
 
     if (quiz) {
       return res.status(200).json(quiz)
     } else {
-      const preferences = [profile.localized, profile.language, profile.tone, profile.formality, profile.drama, profile.difficulty]
-      const newQuizPrompt = await requestQuiz(...preferences)
-      if (!newQuizPrompt.prompt || !newQuizPrompt.answer || !newQuizPrompt.wrongAnswers) {
-        console.log("ERROR CREATING QUIZ: ", newQuizPrompt)
-        throw "ERROR CREATING QUIZ"
-      }
       const newQuiz = {
-        prompt: newQuizPrompt.prompt,
-        answer: newQuizPrompt.answer,
-        wrongAnswers: newQuizPrompt.wrongAnswers,
-        language: profile.language,
-        difficulty: profile.difficulty,
-        formality: profile.formality,
-        drama: profile.drama
+        prompt: "No more quizzes :(",
+        answer: "...",
+        wrongAnswers: ["...","...","..."]
       }
-      console.log("NEW QUIZ: ", newQuiz)
-      const freshQuiz = await Quiz.create(newQuiz)
-      return res.status(200).json(freshQuiz)
-
+      return res.status(200).json(newQuiz)
     }
   } catch (error) {
     console.error('Error in getQuiz:', error)
@@ -73,7 +58,31 @@ async function getQuiz(req, res) {
 async function answerQuiz(req, res) {
   try {
     console.log("answerQuiz - User: ", req.user)
-    return res.status(200).json(requestQuiz(...options))
+    console.log("answerQuiz - id: ", req.params.id)
+
+    if (!req.user) {
+      throw "missing user id" 
+    }
+
+    if (!req.params || !req.params.id) {
+      throw "missing quiz id params"
+    }
+
+    const profile = Profile.findOne({_id: req.user.profile})
+    const quiz = Quiz.find({_id: req.params.id})
+
+    if (!profile) {
+      throw `no profile found for ${req.user}`
+    }
+
+    if (!quiz) {
+      throw `no quiz found for ${req.params.id}`
+    }
+
+    profile.quizzes.push(quiz._id)
+    profile.save()
+
+    return getQuiz()
   } catch (error) {
     console.error('Error in answerQuiz:', error)
     return res.status(500).json({ message: 'Internal server error in answerQuiz' })
