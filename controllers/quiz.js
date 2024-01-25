@@ -21,7 +21,12 @@ async function getQuizHistory(req, res) {
 async function getQuizDetails(req, res) {
   try {
     const id = req.params.id
-    return res.status(200).json(requestQuiz(...options))
+    console.log("getQuizDetails - id: ", id)
+    const quiz = await Quiz.findOne({_id: id})
+    if (!quiz) {
+      throw `no quiz found for id: ${id}`
+    }
+    return res.status(200).json(quiz)
   } catch (error) {
     console.error('Error in getQuizDetails:', error)
     return res.status(500).json({ message: 'Internal server error in getQuizDetails' })

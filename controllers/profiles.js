@@ -17,6 +17,12 @@ async function updatePreferences(req, res) {
   try {
     const user = await User.findOne({_id: req.user})
     const profile = await Profile.findOne({_id: user.profile})
+    profile.language = profile.language.toLowerCase()
+    profile.difficulty = profile.difficulty.toLowerCase()
+
+
+    if (!user) { throw "no user found" }
+    if (!profile) { throw "no profile found for user: ", user}
 
     if (profile.language === "spanish" || profile.language === "arabic" || 
     profile.language === "korean" || profile.language === "chinese") {
@@ -25,10 +31,11 @@ async function updatePreferences(req, res) {
       console.log("invalid language selection: ", req.body.language)
     }
 
-    if (profile.language === "easy" || profile.language === "medium" || profile.language === "hard") {
+    if (profile.difficulty === "easy" || profile.difficulty === "medium" || 
+    profile.difficulty === "hard") {
       profile.difficulty = req.body.difficulty
     } else {
-      console.log("invalid difficulty selection: ", req.body.language)
+      console.log("invalid difficulty selection: ", req.body.difficulty)
     }
 
     profile.save()
