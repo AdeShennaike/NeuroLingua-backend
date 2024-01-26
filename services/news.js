@@ -8,6 +8,7 @@ const news = [
     content: ["", "", ""]
   },
   {
+    id: 0,
     category: "Business / Tech",
     author: "Brian Fung, CNN",
     source: "CNN",
@@ -23,6 +24,7 @@ const news = [
     ]
   },
   {
+    id: 1,
     category: "{ar:أعمال / إعلام|en:Business / Media}",
     author: "{ar:أوليفر دارسي، سي إن إن|en:by Oliver Darcy, CNN}",
     source: "CNN",
@@ -36,6 +38,7 @@ const news = [
     ]
   },
   {
+    id: 2,
     category: "{ar:السعودية تغير قوانين الكحول|en:Saudi Arabia to change alcohol rules}",
     author: "{ar:مصطفى سالم، سي إن إن|en:By Mostafa Salem, CNN}",
     source: "CNN",
@@ -51,6 +54,7 @@ const news = [
     ]
   },
   {
+    id: 3,
     category: "{zh:世界 / 亚洲|en:World / Asia}",
     author: "{zh:布拉德·伦登，CNN|en:By Brad Lendon, CNN}",
     source: "CNN",
@@ -70,3 +74,19 @@ const news = [
     ]
   }
 ]
+
+async function getNews(req, res) {
+  try {
+    return res.status(200).json(news)
+  } catch (error) {
+    console.error('Error in getArticle:', error)
+    return res.status(500).json({ message: 'Internal server error in getArticle' })
+  }
+}
+
+import express from "express"
+const router = express.Router()
+
+router.get("/news", getNews)
+
+export { router }
