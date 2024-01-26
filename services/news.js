@@ -2,7 +2,6 @@ const news = [
   {
     id: 0,
     language: "jp",
-    preview: "",
     category: "Business / Tech",
     author: "Brian Fung, CNN",
     source: "CNN",
@@ -20,7 +19,6 @@ const news = [
   {
     id: 1,
     language: "ar",
-    preview: "",
     category: "{ar:أعمال / إعلام|en:Business / Media}",
     author: "{ar:أوليفر دارسي، سي إن إن|en:by Oliver Darcy, CNN}",
     source: "CNN",
@@ -29,14 +27,12 @@ const news = [
     content: [
         "{ar:جون ستيوارت يعود إلى منزله القديم في 'ذا ديلي شو'|en:Jon Stewart is returning to his old home at 'The Daily Show'} — {ar:لكن الحي الذي تقع فيه الدار الكوميدية قد تغير بشكل كبير منذ أن توقف عن تقديم البرنامج|en:but the neighborhood in which the comedic house resides has dramatically changed since he last signed off from host chair}.",
         "{ar:ستيوارت، الذي قدم البرنامج الشهير لمدة 16 عامًا، غادر كوميدي سنترال في عام 2015|en:Stewart, who hosted the iconic program for 16 years, decamped Comedy Central in 2015} — {ar:تزامنًا مع صعود دونالد ترامب إلى السلطة وتمزق أوصال السياسة الأمريكية|en:just as Donald Trump ascended to power and as the seams of American politics tore apart}. {ar:بينما لا ينقص المواد الخام الساخرة القادمة من واشنطن لكوميديين لاستخدامها كنكات، يعود ستيوارت إلى تشكيلة الكابل في بيئة متضررة من عاصفة المعلومات السيئة المزاج|en:While there is never a shortage of material pouring out of Washington for comedians to use as punchlines, Stewart returns to the cable lineup in an environment battered by an ill-tempered information monsoon}.",
-        "{ar:المعلومات المضللة ونظريات المؤامرة والأكاذيب الصريحة تشبع الخطاب العام لعام 2024 بطريقة تتناقض بشكل صارخ مع العصر السابق لترامب الذي كان ستيوارت يعمل فيه سابقًا|en:Misinformation, conspiracy theories, and outright lies saturate the 2024 public discourse in a way that stands in stark contrast to the pre-Trump era in which Stewart previously operated}. {ar:ترامب وحلفاؤه السياسيون من MAGA لديهم في تصرفهم آلة إعلامية قوية تضخ الدعاية في الحوار الوطني وترسلها فيروسية على أساس يومي|en:Trump and his stable of MAGA political allies have at their disposal a powerful media machine that pumps propaganda into the national conversation and sends it viral on a daily basis}.",
-        "{ar:عندما كان ستيوارت يدير 'ذا ديلي شو'|en:Back when Stewart helmed 'The Daily Show'}, {ar:كان يستفز أشخاصًا أكثر استقرارًا مثل شخصية الأخبار المحافظة ب"
+        "{ar:المعلومات المضللة ونظريات المؤامرة والأكاذيب الصريحة تشبع الخطاب العام لعام 2024 بطريقة تتناقض بشكل صارخ مع العصر السابق لترامب الذي كان ستيوارت يعمل فيه سابقًا|en:Misinformation, conspiracy theories, and outright lies saturate the 2024 public discourse in a way that stands in stark contrast to the pre-Trump era in which Stewart previously operated}. {ar:ترامب وحلفاؤه السياسيون من MAGA لديهم في تصرفهم آلة إعلامية قوية تضخ الدعاية في الحوار الوطني وترسلها فيروسية على أساس يومي|en:Trump and his stable of MAGA political allies have at their disposal a powerful media machine that pumps propaganda into the national conversation and sends it viral on a daily basis}."
     ]
   },
   {
     id: 2,
     language: "ar",
-    preview: "",
     category: "Politics / Middle East",
     headline: "{ar:السعودية تغير قوانين الكحول|en:Saudi Arabia to change alcohol rules}",
     author: "{ar:مصطفى سالم، سي إن إن|en:By Mostafa Salem, CNN}",
@@ -55,7 +51,6 @@ const news = [
   {
     id: 3,
     language: "zh",
-    preview: "",
     headline: "{zh:巨大的流浪海浪冲击太平洋中的偏远美国军事基地|en:Huge rogue waves smash into remote US military base in Pacific}",
     category: "{zh:世界 / 亚洲|en:World / Asia}",
     author: "{zh:布拉德·伦登，CNN|en:By Brad Lendon, CNN}",
