@@ -14,6 +14,7 @@ import './config/database.js'
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as quizRouter } from './routes/quiz.js'
+import { router as newsRouter } from './services/news.js'
 
 // create the express app
 const app = express()
@@ -24,6 +25,7 @@ app.use(logger('dev'))
 app.use(express.json())
 
 // mount imported routes
+app.use('/api', newsRouter)
 app.use('/api', profilesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/quizzes', quizRouter)

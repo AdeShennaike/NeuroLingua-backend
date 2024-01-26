@@ -11,12 +11,6 @@ const DRAMA_LEVEL = {
   low: "low"
 }
 
-const CHALLENGE_LEVEL = {
-  high: "high",
-  medium: "med",
-  low: "low"
-}
-
 const INFORMALITY_LEVEL = {
   casual: "casual",
   formal: "formal"
