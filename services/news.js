@@ -1,18 +1,12 @@
 const news = [
   {
-    category: "",
-    author: "",
-    source: "",
-    headline: "",
-    date: "",
-    content: ["", "", ""]
-  },
-  {
     id: 0,
+    language: "jp",
+    preview: "",
     category: "Business / Tech",
     author: "Brian Fung, CNN",
     source: "CNN",
-    headline: "{jp:アップルがヨーロッパのアプリに関する大規模な変更を発表|en:Apple announces sweeping changes for apps in Europe}, including allowing third-party app stores for the first time",
+    headline: "{jp:アップルがヨーロッパのアプリに関する大規模な変更を発表|en:Apple announces sweeping changes for apps in Europe}",
     date: "Updated: 4:29 PM EST, Thu January 25, 2024",
     content: [
       "Apple announced sweeping new changes to its handling of {jp:アプリケーション|en:apps} in {jp:ヨーロッパ|en:Europe} on {jp:木曜日|en:Thursday}, including plans to allow third-party {jp:アプリストア|en:app stores} on {jp:iPhonesとiPads|en:iPhones and iPads} for the first time in {jp:会社|en:company} history and significant cuts to Apple’s {jp:アプリストア|en:app store} fees.",
@@ -25,10 +19,12 @@ const news = [
   },
   {
     id: 1,
+    language: "ar",
+    preview: "",
     category: "{ar:أعمال / إعلام|en:Business / Media}",
     author: "{ar:أوليفر دارسي، سي إن إن|en:by Oliver Darcy, CNN}",
     source: "CNN",
-    headline: "{ar:عودة جون ستيوارت إلى 'ذا ديلي شو'|en:Jon Stewart’s return to ‘The Daily Show’} could shake up 2024 politics",
+    headline: "{ar:عودة جون ستيوارت إلى 'ذا ديلي شو'|en:Jon Stewart’s return to ‘The Daily Show’}",
     date: "{ar:محدث: 7:08 صباحًا بتوقيت شرق الولايات المتحدة، الخميس 25 يناير 2024|en:Updated: 7:08 AM EST, Thu January 25, 2024}",
     content: [
         "{ar:جون ستيوارت يعود إلى منزله القديم في 'ذا ديلي شو'|en:Jon Stewart is returning to his old home at 'The Daily Show'} — {ar:لكن الحي الذي تقع فيه الدار الكوميدية قد تغير بشكل كبير منذ أن توقف عن تقديم البرنامج|en:but the neighborhood in which the comedic house resides has dramatically changed since he last signed off from host chair}.",
@@ -39,7 +35,10 @@ const news = [
   },
   {
     id: 2,
-    category: "{ar:السعودية تغير قوانين الكحول|en:Saudi Arabia to change alcohol rules}",
+    language: "ar",
+    preview: "",
+    category: "Politics / Middle East",
+    headline: "{ar:السعودية تغير قوانين الكحول|en:Saudi Arabia to change alcohol rules}",
     author: "{ar:مصطفى سالم، سي إن إن|en:By Mostafa Salem, CNN}",
     source: "CNN",
     date: "{ar:محدث: 9:31 صباحًا بتوقيت شرق الولايات المتحدة، الخميس 25 يناير 2024|en:Updated: 9:31 AM EST, Thu January 25, 2024}",
@@ -55,6 +54,9 @@ const news = [
   },
   {
     id: 3,
+    language: "zh",
+    preview: "",
+    headline: "{zh:巨大的流浪海浪冲击太平洋中的偏远美国军事基地|en:Huge rogue waves smash into remote US military base in Pacific}",
     category: "{zh:世界 / 亚洲|en:World / Asia}",
     author: "{zh:布拉德·伦登，CNN|en:By Brad Lendon, CNN}",
     source: "CNN",
