@@ -6,7 +6,7 @@ const news = [
     author: "Brian Fung, CNN",
     source: "CNN",
     headline: "{jp:アップルがヨーロッパのアプリに関する大規模な変更を発表|en:Apple announces sweeping changes for apps in Europe}",
-    date: "Updated: 4:29 PM EST, Thu January 25, 2024",
+    date: "January 25, 2024",
     content: [
       "Apple announced sweeping new changes to its handling of {jp:アプリケーション|en:apps} in {jp:ヨーロッパ|en:Europe} on {jp:木曜日|en:Thursday}, including plans to allow third-party {jp:アプリストア|en:app stores} on {jp:iPhonesとiPads|en:iPhones and iPads} for the first time in {jp:会社|en:company} history and significant cuts to Apple’s {jp:アプリストア|en:app store} fees.",
       "The unprecedented {jp:更新|en:updates}, which are a response to new {jp:ヨーロッパの規制|en:European regulations} set to take effect in {jp:3月|en:March}, reflect some of the most consequential changes to Apple’s {jp:アプリ|en:app} business since the debut of its proprietary {jp:アプリストア|en:app store} 15 years ago, which forms the bedrock of its {jp:壁のある庭|en:walled garden} ecosystem.",
@@ -23,7 +23,7 @@ const news = [
     author: "{ar:أوليفر دارسي، سي إن إن|en:by Oliver Darcy, CNN}",
     source: "CNN",
     headline: "{ar:عودة جون ستيوارت إلى 'ذا ديلي شو'|en:Jon Stewart’s return to ‘The Daily Show’}",
-    date: "{ar:محدث: 7:08 صباحًا بتوقيت شرق الولايات المتحدة، الخميس 25 يناير 2024|en:Updated: 7:08 AM EST, Thu January 25, 2024}",
+    date: "{ar: صباحًا بتوقيت شرق الولايات المتحدة، الخميس 25 يناير 2024|en:Updated January 25, 2024}",
     content: [
         "{ar:جون ستيوارت يعود إلى منزله القديم في 'ذا ديلي شو'|en:Jon Stewart is returning to his old home at 'The Daily Show'} — {ar:لكن الحي الذي تقع فيه الدار الكوميدية قد تغير بشكل كبير منذ أن توقف عن تقديم البرنامج|en:but the neighborhood in which the comedic house resides has dramatically changed since he last signed off from host chair}.",
         "{ar:ستيوارت، الذي قدم البرنامج الشهير لمدة 16 عامًا، غادر كوميدي سنترال في عام 2015|en:Stewart, who hosted the iconic program for 16 years, decamped Comedy Central in 2015} — {ar:تزامنًا مع صعود دونالد ترامب إلى السلطة وتمزق أوصال السياسة الأمريكية|en:just as Donald Trump ascended to power and as the seams of American politics tore apart}. {ar:بينما لا ينقص المواد الخام الساخرة القادمة من واشنطن لكوميديين لاستخدامها كنكات، يعود ستيوارت إلى تشكيلة الكابل في بيئة متضررة من عاصفة المعلومات السيئة المزاج|en:While there is never a shortage of material pouring out of Washington for comedians to use as punchlines, Stewart returns to the cable lineup in an environment battered by an ill-tempered information monsoon}.",
@@ -37,7 +37,7 @@ const news = [
     headline: "{ar:السعودية تغير قوانين الكحول|en:Saudi Arabia to change alcohol rules}",
     author: "{ar:مصطفى سالم، سي إن إن|en:By Mostafa Salem, CNN}",
     source: "CNN",
-    date: "{ar:محدث: 9:31 صباحًا بتوقيت شرق الولايات المتحدة، الخميس 25 يناير 2024|en:Updated: 9:31 AM EST, Thu January 25, 2024}",
+    date: "{ar:صباحًا بتوقيت شرق الولايات المتحدة، الخميس 25 يناير 2024|en:Updated January 25, 2024}",
     content: [
         "{ar:تم الكشف عن قواعد جديدة للكحول في المملكة العربية السعودية|en:New rules on alcohol in Saudi Arabia} have been revealed ahead of the reported opening of the first-ever {ar:متجر لبيع الخمور|en:liquor store} in the capital {ar:الرياض|en:Riyadh}.",
         "The rules regulating {ar:حصص الكحول|en:alcohol quotas} for non-Muslim diplomatic missions are being introduced to {ar:مواجهة التجارة غير المشروعة للبضائع الكحولية|en:counter the illicit trade of alcohol goods},” the governmental {ar:مركز الاتصالات الدولية|en:Center of International Communication} (CIC) said in a statement.",
@@ -55,7 +55,7 @@ const news = [
     category: "{zh:世界 / 亚洲|en:World / Asia}",
     author: "{zh:布拉德·伦登，CNN|en:By Brad Lendon, CNN}",
     source: "CNN",
-    date: "{zh:更新时间：2024年1月25日上午7:48东部标准时间|en:Updated: 7:48 AM EST, Thu January 25, 2024}",
+    date: "{zh:更新时间：2024年1月25日上午7：48东部标准时间|en:Updated 7 AM EST, Thu January 25, 2024}",
     content: [
         "“{zh:巨大的|en:Gigantic}” {zh:海浪|en:waves} swamped parts of a key {zh:美国军事设施|en:US military facility} in the middle of the {zh:太平洋|en:Pacific Ocean} last weekend, causing damage that will take months to repair, according to a {zh:美国军方|en:US Army} report.",
         "A video posted on X showed the terrifying surge of {zh:水|en:water} rushing into a dining facility on {zh:罗伊-纳姆尔岛|en:Roi-Namur island}, the second-largest island of {zh:夸贾林环礁|en:Kwajalein Atoll}, which hosts a {zh:美国军事弹道导弹防御测试站点|en:US military ballistic missile defense test site} in the {zh:马绍尔群岛共和国|en:Republic of the Marshall Islands}.",
