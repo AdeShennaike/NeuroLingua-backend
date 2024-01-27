@@ -489,15 +489,193 @@ const arabicQuizBufferEasy = [
   }
 ]
 
+const chineseQuizBufferHard = [
+  {
+    "question": "风雨送春归，飞雪迎春到。",
+    "answer": "Wind and rain send spring away, flying snow welcomes spring's arrival.",
+    "alternate": [
+      "Spring leaves with the wind, and arrives with the snow.",
+      "Snow and rain bring the end of spring, wind brings it back.",
+      "Spring departs in the snow, and arrives with the rain."
+    ]
+  },
+  {
+    "question": "只影向谁去，浓云无定河。",
+    "answer": "To whom does the lone shadow go, amidst the dense clouds over the endless river?",
+    "alternate": [
+      "Whose shadow wanders alone, under the changing sky?",
+      "A solitary shadow moves without direction, under the constant clouds.",
+      "To whom does this shadow belong, beneath the fleeting clouds?"
+    ]
+  },
+  {
+    "question": "千山鸟飞绝，万径人踪灭。",
+    "answer": "Over a thousand mountains, birds cease to fly; on ten thousand paths, human traces vanish.",
+    "alternate": [
+      "Birds disappear over the mountains, and people leave no trace.",
+      "Mountains stand silent without birds, paths empty without human steps.",
+      "In the vast mountains, no birds can be seen; on the myriad paths, no humans are found."
+    ]
+  },
+  {
+    "question": "孤帆远影碧空尽，唯见长江天际流。",
+    "answer": "A solitary sail, a distant shadow against the endless blue, all that's seen is the Yangtze flowing to the sky's edge.",
+    "alternate": [
+      "A lone sail against the sky, as far as the eye can see, with the Yangtze merging into the horizon.",
+      "Only the long river flows to the edge of the green expanse, where a solitary sail casts a shadow.",
+      "The distant shadow of a lone sail vanishes into the blue, leaving only the Yangtze flowing into the sky."
+    ]
+  },
+  {
+    "question": "落霞与孤鹜齐飞，秋水共长天一色。",
+    "answer": "The setting sun and a solitary wild duck fly together; the autumn waters merge with the sky in one color.",
+    "alternate": [
+      "Wild ducks fly as the sun sets, the water mirroring the vast sky.",
+      "As the sun falls, it flies with the ducks over waters blending with the autumn sky.",
+      "The sunset and the duck take flight together, over waters that reflect the endless sky."
+    ]
+  },
+  {
+    "question": "大漠孤烟直，长河落日圆。",
+    "answer": "Lone smoke rises over the vast desert, the long river welcomes a round sunset.",
+    "alternate": [
+      "A single line of smoke ascends in the desert, as the river greets the setting sun.",
+      "The desert's lone smoke stands straight, the long river's sunset is complete.",
+      "Straight smoke rises in the great desert, the long river sees the sun set round."
+    ]
+  },
+  {
+    "question": "碧玉妆成一树高，万条垂下绿丝绦。",
+    "answer": "Adorned in jade, a tree stands tall; ten thousand strands hang down like green silk ribbons.",
+    "alternate": [
+      "A tree dressed in green jade reaches high, its many branches like hanging silk.",
+      "Jade decorates the tree, with countless green threads falling.",
+      "One tree stands adorned with emerald jade, with myriad threads of green silk dangling."
+    ]
+  },
+  {
+    "question": "两岸猿声啼不住，轻舟已过万重山。",
+    "answer": "The ceaseless cries of apes on both shores, yet the light boat has passed through countless mountains.",
+    "alternate": [
+      "Amidst the endless monkey cries, the boat crosses myriad mountains.",
+      "The calls of monkeys on both sides never stop, as the boat swiftly passes many mountains.",
+      "Apes cry endlessly along the banks, while the boat moves beyond the numerous mountains."
+    ]
+  }
+]
+
+const koreanQuizBufferEasy = [
+  {
+    "question": "날씨가 정말 좋아요.",
+    "answer": "The weather is really nice.",
+    "alternate": [
+      "It's very cold outside.",
+      "It looks like it's going to rain.",
+      "The weather is very bad."
+    ]
+  },
+  {
+    "question": "저는 커피를 마실래요.",
+    "answer": "I would like to drink coffee.",
+    "alternate": [
+      "I don't like coffee.",
+      "I prefer tea over coffee.",
+      "I will eat bread."
+    ]
+  },
+  {
+    "question": "이것은 얼마예요?",
+    "answer": "How much is this?",
+    "alternate": [
+      "What is this?",
+      "This is very expensive.",
+      "This is not for sale."
+    ]
+  },
+  {
+    "question": "지금 몇 시예요?",
+    "answer": "What time is it now?",
+    "alternate": [
+      "Where are we going?",
+      "Is it too late?",
+      "Do we have time?"
+    ]
+  },
+  {
+    "question": "저는 학생이에요.",
+    "answer": "I am a student.",
+    "alternate": [
+      "I am a teacher.",
+      "I am looking for a student.",
+      "I graduated last year."
+    ]
+  },
+  {
+    "question": "감사합니다.",
+    "answer": "Thank you.",
+    "alternate": [
+      "You're welcome.",
+      "I'm sorry.",
+      "Excuse me."
+    ]
+  },
+  {
+    "question": "화장실이 어디예요?",
+    "answer": "Where is the bathroom?",
+    "alternate": [
+      "I need to take a shower.",
+      "The bathroom is occupied.",
+      "I don't need to go to the bathroom."
+    ]
+  },
+  {
+    "question": "저는 배고파요.",
+    "answer": "I am hungry.",
+    "alternate": [
+      "I am full.",
+      "I am thirsty.",
+      "I am tired."
+    ]
+  },
+  {
+    "question": "도서관은 조용해야 해요.",
+    "answer": "The library should be quiet.",
+    "alternate": [
+      "The library is closed.",
+      "The library is very noisy.",
+      "I don't like the library."
+    ]
+  },
+  {
+    "question": "지금 출발해야 해요.",
+    "answer": "We need to leave now.",
+    "alternate": [
+      "We have plenty of time.",
+      "Let's stay a bit longer.",
+      "We arrived too early."
+    ]
+  }
+]
+
+const chineseQuizBufferEasy = []
+
 
 
 export {
   requestSampleQuiz,
   requestQuiz,
+
   koreanQuizBuffer,
+  koreanQuizBufferEasy,
+
   arabicQuizBufferHard,
   arabicQuizBufferEasy,
+
   spanishQuizBuffer,
   spanishQuizBufferEasy,
-  chineseQuizBuffer
+
+  chineseQuizBuffer,
+  chineseQuizBufferEasy,
+  chineseQuizBufferHard,
+  
 }
