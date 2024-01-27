@@ -36,6 +36,7 @@ async function updatePreferences(req, res) {
     } else {
       console.log("invalid difficulty selection: ", req.body.difficulty)
     }
+    profile.quizzes = []
 
     profile.save()
 
