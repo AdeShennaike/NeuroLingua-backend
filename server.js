@@ -21,7 +21,7 @@ const app = express()
 
 // basic middleware
 app.use(cors({
-  origin: 'http://localhost:3000' // Your frontend's URL
+  origin: 'https://neurolingua7.netlify.app'// Your frontend's URL
 }))
 app.use(logger('dev'))
 app.use(express.json())
